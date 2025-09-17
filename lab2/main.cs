@@ -1,11 +1,6 @@
-#r "nuget: System.Runtime"
-
-using System;
-
-// partial класс (2 части)
 public partial class Book
 {
-    private static readonly int id;
+    private readonly int id;
     private string title;
     private string author;
     private string publisher;
@@ -14,11 +9,10 @@ public partial class Book
     private double price;
     private string coverType;
 
-    private const string category = "Literature";
+    private const string CATEGORY = "Литература";
     private static int count;
 
     public int Id => id;
-
     public string Title { get => title; set => title = value; }
     public string Author { get => author; set => author = value; }
     public string Publisher { get => publisher; set => publisher = value; }
@@ -27,15 +21,13 @@ public partial class Book
     public double Price { get => price; private set => price = value; }
     public string CoverType { get => coverType; set => coverType = value; }
 
-    public Book()
+    public Book() : this("Неизвестно", "Неизвестно", "Неизвестно", DateTime.Now.Year, 0, 0, "Мягкая")
     {
-        id = GetNextId();
-        count++;
     }
 
     public Book(string title, string author, string publisher, int year, int pages, double price, string coverType)
     {
-        id = GetNextId();
+        this.id = GetNextId();
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -46,85 +38,136 @@ public partial class Book
         count++;
     }
 
-    public Book(string title = "Unknown", string author = "Unknown")
+    public Book(string title = "Название по умолчанию", string author = "Автор по умолчанию") 
+        : this(title, author, "Издательство по умолчанию", 2024, 100, 10.0, "Мягкая")
     {
-        id = GetNextId();
-        this.title = title;
-        this.author = author;
-        count++;
     }
 
-    private Book(int id)
+    private Book(int customId, string customTitle)
     {
-        this.id = id;
+        this.id = customId;
+        this.title = customTitle;
+        this.author = "Приватный конструктор";
+        this.publisher = "Неизвестно";
+        this.year = 2024;
+        this.pages = 0;
+        this.price = 0;
+        this.coverType = "Мягкая";
         count++;
     }
-
-    public static Book CreateWithId(int customId) => new Book(customId);
 
     static Book()
     {
         count = 0;
+        Console.WriteLine("Статический конструктор вызван");
     }
 
-    public void UpdatePrice(ref double newPrice, out double oldPrice)
+    public static Book CreateFromPrivateConstructor(int id, string title) => new Book(id, title);
+
+    public bool UpdatePriceWithRefOut(ref double newPrice, out double oldPrice, out string status)
     {
-        oldPrice = price;
-        price = newPrice;
+        oldPrice = this.price;
+        
+        if (newPrice > 0)
+        {
+            this.price = newPrice;
+            status = "Цена успешно обновлена";
+            return true;
+        }
+        else
+        {
+            status = "Ошибка: цена должна быть положительной";
+            return false;
+        }
     }
 
     public static void PrintClassInfo()
     {
-        Console.WriteLine($"Class Book: total objects created = {count}, category = {category}");
+        Console.WriteLine($"Информация о классе: Создано объектов: {count}, Категория: {CATEGORY}");
     }
 
-    private static int GetNextId() => Guid.NewGuid().GetHashCode();
+    private static int GetNextId() => Math.Abs(Guid.NewGuid().GetHashCode());
 
     public override bool Equals(object obj) => obj is Book other && this.id == other.id;
-    public override int GetHashCode() => id.GetHashCode();
-    public override string ToString() => $"Book: {title}, {author}, {publisher}, {year}, {pages} pages, {price}$, cover: {coverType}, id: {id}";
+    
+    public override int GetHashCode() => this.id;
+    
+    public override string ToString() => 
+        $"'{this.Title}' автор {this.Author} ({this.Year}), {this.Pages} стр., {this.Price} руб., Обложка: {this.CoverType}, ID: {this.Id}";
 }
 
-// вторая часть partial
-public partial class Book { }
-
-// ======= Код выполнения =======
-
-// несколько объектов
-var b1 = new Book();
-var b2 = new Book("Title1", "Author1", "Publisher1", 2001, 300, 15.5, "Hard");
-var b3 = new Book("Title2", "Author2");
-var b4 = Book.CreateWithId(12345);
-
-double newPrice = 20, oldPrice;
-b2.UpdatePrice(ref newPrice, out oldPrice);
-Console.WriteLine($"Old price: {oldPrice}, New price: {b2.Price}");
-
-Console.WriteLine(b2.Equals(b3));
-Console.WriteLine(b2.GetType());
-
-// массив книг
-Book[] books =
+public partial class Book
 {
-    new Book("War and Peace", "Tolstoy", "PublisherA", 1869, 1200, 30, "Hard"),
-    new Book("Anna Karenina", "Tolstoy", "PublisherB", 1877, 900, 25, "Soft"),
-    new Book("The Hobbit", "Tolkien", "PublisherC", 1937, 300, 20, "Hard")
+    public string GetShortInfo() => $"{this.Title} ({this.Author}, {this.Year})";
+}
+
+Console.WriteLine("1. Создание объектов:");
+var book1 = new Book();
+Console.WriteLine($"   Book1: {book1}");
+
+var book2 = new Book("1984", "Джордж Оруэлл", "Secker & Warburg", 1949, 328, 15.99, "Твердая");
+Console.WriteLine($"   Book2: {book2}");
+
+var book3 = new Book("Преступление и наказание", "Достоевский"); 
+Console.WriteLine($"   Book3: {book3}");
+
+var book4 = Book.CreateFromPrivateConstructor(9999, "Секретная книга"); 
+Console.WriteLine($"   Book4: {book4}");
+
+Console.WriteLine("\n2. Работа со свойствами:");
+book1.Title = "Новое название";
+book1.Author = "Новый автор";
+Console.WriteLine($"   Book1 после изменений: {book1}");
+
+Console.WriteLine("\n3. Метод с ref/out параметрами:");
+double newPrice = 25.50;
+if (book2.UpdatePriceWithRefOut(ref newPrice, out double oldPrice, out string message))
+{
+    Console.WriteLine($"   {message}");
+    Console.WriteLine($"   Старая цена: {oldPrice}, Новая цена: {book2.Price}");
+}
+
+Console.WriteLine("\n4. Сравнение объектов:");
+Console.WriteLine($"   book1.Equals(book2): {book1.Equals(book2)}");
+Console.WriteLine($"   Хэш-коды: book1={book1.GetHashCode()}, book2={book2.GetHashCode()}");
+
+Console.WriteLine($"\n5. Тип объекта: {book1.GetType()}");
+
+Console.WriteLine("\n6. Работа с массивом объектов:");
+Book[] library = {
+    new Book("Война и мир", "Толстой", "Русский вестник", 1869, 1225, 30.0, "Твердая"),
+    new Book("Анна Каренина", "Толстой", "Русский вестник", 1877, 864, 25.0, "Мягкая"),
+    new Book("Мастер и Маргарита", "Булгаков", "Московский рабочий", 1967, 384, 20.0, "Твердая")
 };
 
-string searchAuthor = "Tolstoy";
-Console.WriteLine($"\nBooks by {searchAuthor}:");
-foreach (var book in books)
-    if (book.Author == searchAuthor)
-        Console.WriteLine(book);
+string searchAuthor = "Толстой";
+Console.WriteLine($"\nКниги автора '{searchAuthor}':");
+foreach (var book in library)
+{
+    if (book.Author.Contains(searchAuthor))
+    {
+        Console.WriteLine($"   • {book.Title} ({book.Year})");
+    }
+}
 
-int year = 1900;
-Console.WriteLine($"\nBooks after {year}:");
-foreach (var book in books)
-    if (book.Year > year)
-        Console.WriteLine(book);
+Console.WriteLine($"\nКниги после 1900 года:");
+foreach (var book in library)
+{
+    if (book.Year > 1900)
+    {
+        Console.WriteLine($"   • {book.Title} ({book.Year})");
+    }
+}
 
-// анонимный тип
-var anon = new { Title = "Sample", Author = "Somebody", Year = 2024 };
-Console.WriteLine($"\nAnonymous: {anon.Title}, {anon.Author}, {anon.Year}");
+Console.WriteLine("\n7. Анонимный тип:");
+var anonymousBook = new 
+{ 
+    Title = "Анонимная книга", 
+    Author = "Неизвестный автор", 
+    Year = 2024,
+    Price = 15.99
+};
+Console.WriteLine($"   Анонимный: {anonymousBook.Title}, {anonymousBook.Author}, {anonymousBook.Year}");
 
+Console.WriteLine("\n8. Статическая информация:");
 Book.PrintClassInfo();
