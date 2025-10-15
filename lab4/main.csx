@@ -1,5 +1,3 @@
-using System;
-
 // --- Интерфейс ---
 interface ICloneableInfo
 {
@@ -184,27 +182,22 @@ class Printer
 }
 
 // --- Демонстрация ---
-class Program
+
+Publisher pub = new Publisher("Tech Pub", "Main St. 1");
+Author author = new Author("Ivan Ivanov", 45, "Famous author");
+
+Book book = new Book("Book One", 300, pub, author);
+Textbook textbook = new Textbook("Math Basics", 200, pub, author, "Math", 7);
+Journal journal = new Journal("Tech Journal", 50, pub, 5, "September");
+
+PrintedEdition[] editions = { book, textbook, journal };
+Printer printer = new Printer();
+
+foreach (var ed in editions)
 {
-    static void Main()
-    {
-        Publisher pub = new Publisher("Tech Pub", "Main St. 1");
-        Author author = new Author("Ivan Ivanov", 45, "Famous author");
-
-        Book book = new Book("Book One", 300, pub, author);
-        Textbook textbook = new Textbook("Math Basics", 200, pub, author, "Math", 7);
-        Journal journal = new Journal("Tech Journal", 50, pub, 5, "September");
-
-        PrintedEdition[] editions = { book, textbook, journal };
-        Printer printer = new Printer();
-
-        foreach (var ed in editions)
-        {
-            printer.IAmPrinting(ed);
-        }
-
-        // Работа с интерфейсом
-        ICloneableInfo cloneAuthor = author;
-        cloneAuthor.DoClone();
-    }
+    printer.IAmPrinting(ed);
 }
+
+// Работа с интерфейсом
+ICloneableInfo cloneAuthor = author;
+cloneAuthor.DoClone();

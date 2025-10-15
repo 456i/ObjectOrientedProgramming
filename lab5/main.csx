@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-#load "partialClass.cs" 
+#load "partialClass.csx"
 
 // --- Перечисление ---
 enum Genre
@@ -9,7 +7,7 @@ enum Genre
     Science,
     Education,
     Technology,
-    History
+    History,
 }
 
 // --- Структура ---
@@ -42,7 +40,13 @@ abstract partial class PrintedEdition
     public Genre Genre { get; set; }
     public ReleaseDate ReleaseDate { get; set; }
 
-    public PrintedEdition(string title, int pages, Publisher publisher, Genre genre, ReleaseDate release)
+    public PrintedEdition(
+        string title,
+        int pages,
+        Publisher publisher,
+        Genre genre,
+        ReleaseDate release
+    )
     {
         Title = title;
         Pages = pages;
@@ -57,7 +61,14 @@ class Book : PrintedEdition
 {
     public Author Author { get; set; }
 
-    public Book(string title, int pages, Publisher publisher, Author author, Genre genre, ReleaseDate release)
+    public Book(
+        string title,
+        int pages,
+        Publisher publisher,
+        Author author,
+        Genre genre,
+        ReleaseDate release
+    )
         : base(title, pages, publisher, genre, release)
     {
         Author = author;
@@ -119,7 +130,15 @@ sealed class Journal : PrintedEdition
     public int IssueNumber { get; set; }
     public string MonthName { get; set; }
 
-    public Journal(string title, int pages, Publisher publisher, int issueNumber, string month, Genre genre, ReleaseDate release)
+    public Journal(
+        string title,
+        int pages,
+        Publisher publisher,
+        int issueNumber,
+        string month,
+        Genre genre,
+        ReleaseDate release
+    )
         : base(title, pages, publisher, genre, release)
     {
         IssueNumber = issueNumber;
@@ -199,8 +218,11 @@ class PrintedEditionContainer
     private List<PrintedEdition> items = new List<PrintedEdition>();
 
     public void Add(PrintedEdition item) => items.Add(item);
+
     public void Remove(PrintedEdition item) => items.Remove(item);
+
     public PrintedEdition Get(int index) => items[index];
+
     public void Set(int index, PrintedEdition item) => items[index] = item;
 
     public void PrintAll()
@@ -249,32 +271,44 @@ class PrintedEditionController
 }
 
 // --- Демонстрация ---
-class Program
-{
-    static void Main()
-    {
-        Publisher pub = new Publisher("Tech Pub", "Main St. 1");
-        Author author = new Author("Ivan Ivanov", 45, "Famous author");
 
-        Book book = new Book("Book One", 300, pub, author, Genre.Fiction, new ReleaseDate(2020, 5));
-        Textbook textbook = new Textbook("Math Basics", 200, pub, author, "Math", 7, Genre.Education, new ReleaseDate(2021, 9));
-        Journal journal = new Journal("Tech Journal", 50, pub, 5, "September", Genre.Technology, new ReleaseDate(2022, 9));
+Publisher pub = new Publisher("Tech Pub", "Main St. 1");
+Author author = new Author("Ivan Ivanov", 45, "Famous author");
 
-        // Контейнер
-        PrintedEditionContainer container = new PrintedEditionContainer();
-        container.Add(book);
-        container.Add(textbook);
-        container.Add(journal);
+Book book = new Book("Book One", 300, pub, author, Genre.Fiction, new ReleaseDate(2020, 5));
+Textbook textbook = new Textbook(
+    "Math Basics",
+    200,
+    pub,
+    author,
+    "Math",
+    7,
+    Genre.Education,
+    new ReleaseDate(2021, 9)
+);
+Journal journal = new Journal(
+    "Tech Journal",
+    50,
+    pub,
+    5,
+    "September",
+    Genre.Technology,
+    new ReleaseDate(2022, 9)
+);
 
-        container.PrintAll();
+// Контейнер
+PrintedEditionContainer container = new PrintedEditionContainer();
+container.Add(book);
+container.Add(textbook);
+container.Add(journal);
 
-        // Контроллер
-        PrintedEditionController controller = new PrintedEditionController(container);
-        controller.PrintByGenre(Genre.Education);
-        controller.PrintByPages(100);
+container.PrintAll();
 
-        // Интерфейс
-        ICloneableInfo cloneAuthor = author;
-        cloneAuthor.DoClone();
-    }
-}
+// Контроллер
+PrintedEditionController controller = new PrintedEditionController(container);
+controller.PrintByGenre(Genre.Education);
+controller.PrintByPages(100);
+
+// Интерфейс
+ICloneableInfo cloneAuthor = author;
+cloneAuthor.DoClone();

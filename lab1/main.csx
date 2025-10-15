@@ -1,6 +1,3 @@
-using System;
-using System.Text;
-
 void BuildInTypesDemo()
 {
     int a = 10;

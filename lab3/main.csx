@@ -1,12 +1,9 @@
-using System;
-
-#nullable disable // отключаем nullable reference warnings
-
 // --- Node ---
 public class Node
 {
     public string Value;
     public Node Next;
+
     public Node(string value)
     {
         Value = value;
@@ -175,12 +172,15 @@ public static class StatisticOperation
 
     public static int MaxMinDifference(NodeList list)
     {
-        int? max = null, min = null;
+        int? max = null,
+            min = null;
         for (Node current = list.Head; current != null; current = current.Next)
         {
             int len = current.Value.Length;
-            if (max == null || len > max) max = len;
-            if (min == null || len < min) min = len;
+            if (max == null || len > max)
+                max = len;
+            if (min == null || len < min)
+                min = len;
         }
         return (max ?? 0) - (min ?? 0);
     }
@@ -193,7 +193,6 @@ public static class StatisticOperation
         return count;
     }
 }
-
 
 // --- WordCount ---
 public static class Extensions
@@ -232,4 +231,3 @@ Console.WriteLine("Count: " + StatisticOperation.CountElements(list1));
 
 string test = "Hello world";
 Console.WriteLine("Word count: " + Extensions.WordCount(test));
-
