@@ -2,14 +2,12 @@
 
 // IEnumerable<T> — это объект, который может создавать новый IEnumerator каждый раз, когда нужен цикл foreach
 
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using System.Text.Json;
 
 public static class Reflector
 {
+
     public static string output_path = "output.json";
 
     public static string GetAssemblyName(Type t) => t.Assembly.FullName;
