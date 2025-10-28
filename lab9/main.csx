@@ -1,3 +1,6 @@
+using System.Collections.ObjectModel; // Для ObservableCollection<T>
+using System.Collections.Specialized; // Для NotifyCollectionChangedEventArgs
+
 // ---- Task 1 ------
 
 // Интерфейс для демонстрации
