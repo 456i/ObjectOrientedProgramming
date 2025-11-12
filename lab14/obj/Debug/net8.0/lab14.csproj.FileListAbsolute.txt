@@ -1,0 +1,15 @@
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.GeneratedMSBuildEditorConfig.editorconfig
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.AssemblyInfoInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.AssemblyInfo.cs
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.csproj.CoreCompileInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.sourcelink.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/bin/Debug/net8.0/lab14
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/bin/Debug/net8.0/lab14.deps.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/bin/Debug/net8.0/lab14.runtimeconfig.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/bin/Debug/net8.0/lab14.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/bin/Debug/net8.0/lab14.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/refint/lab14.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/lab14.genruntimeconfig.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/ObjectedOrientedProgramming/lab14/obj/Debug/net8.0/ref/lab14.dll
