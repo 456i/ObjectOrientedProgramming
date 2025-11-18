@@ -10,7 +10,8 @@ public abstract class PrintedEdition
 
     [XmlIgnore]
     [JsonIgnore]
-    public int Pages { get; set; } // Запрещенное поле
+    [NonSerialized]
+    public int Pages; // Запрещенное поле
 
     [XmlElement(ElementName = "Publisher")]
     public Publisher Publisher { get; set; }
@@ -22,6 +23,11 @@ public abstract class PrintedEdition
         this.Title = title;
         this.Pages = pages;
         this.Publisher = publisher;
+    }
+
+    public override string ToString()
+    {
+        return $"Title: {Title}, Publisher: {Publisher?.Name}, Pages: {Pages}";
     }
 }
 
@@ -37,6 +43,11 @@ public class Book : PrintedEdition
         : base(title, pages, publisher)
     {
         this.Author = author;
+    }
+
+    public override string ToString()
+    {
+        return $"Book: {Title}, Author: {Author?.Name}, Publisher: {Publisher?.Name}, Pages: {Pages}";
     }
 }
 
@@ -60,6 +71,11 @@ public class Author
         this.Age = age;
         this.Biography = bio;
     }
+
+    public override string ToString()
+    {
+        return $"Author: {Name}, Age: {Age}";
+    }
 }
 
 [Serializable]
@@ -77,5 +93,10 @@ public class Publisher
     {
         this.Name = name;
         this.Address = address;
+    }
+
+    public override string ToString()
+    {
+        return $"Publisher: {Name}, Address: {Address}";
     }
 }

@@ -8,7 +8,7 @@ public static class PrimeNumberCalculator
     {
         Console.WriteLine("\n=== ЗАДАНИЕ 3: ПОТОК ДЛЯ РАСЧЕТА ПРОСТЫХ ЧИСЕЛ ===");
 
-        using (StreamWriter writer = new StreamWriter("primes.txt", append: true))
+        using (StreamWriter writer = new StreamWriter("primes.txt"))
         {
             calculationThread = new Thread(() =>
             {

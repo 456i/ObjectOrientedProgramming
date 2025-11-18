@@ -51,7 +51,7 @@ class Program
 
                 // Десериализуем
                 var deserialized = serializer.Deserialize<Book>(serialized);
-                Console.WriteLine($"Десериализовано: {deserialized.Title}");
+                Console.WriteLine($"Десериализовано: {deserialized}");
 
                 // Проверяем отсутствие поля Pages
                 Console.WriteLine(

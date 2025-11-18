@@ -23,25 +23,22 @@ public static class DomainOperations
             Console.WriteLine($"  - {assembly.FullName}");
         }
 
-        // Создание нового домена
-        AppDomain newDomain = AppDomain.CreateDomain("НовыйДомен");
-        Console.WriteLine($"\nСоздан новый домен: {newDomain.FriendlyName}");
-
-        // Загрузка сборки в новый домен (пример)
         try
         {
-            // Здесь можно загрузить нужную сборку
-            // newDomain.Load("SomeAssembly");
+            // Создание нового домена
+            AppDomain newDomain = AppDomain.CreateDomain("НовыйДомен"); // устаревший метод
+            Console.WriteLine($"\nСоздан новый домен: {newDomain.FriendlyName}");
+            // Загрузка сборки в новый домен (пример)
+            newDomain.Load("SomeAssembly");
             Console.WriteLine("Сборка загружена в новый домен");
+            // Выгрузка домена
+            AppDomain.Unload(newDomain);
+            Console.WriteLine("Новый домен выгружен");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Ошибка загрузки сборки: {ex.Message}");
         }
-
-        // Выгрузка домена
-        AppDomain.Unload(newDomain);
-        Console.WriteLine("Новый домен выгружен");
     }
 }
 #pragma warning restore SYSLIB0024

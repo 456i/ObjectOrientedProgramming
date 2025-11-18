@@ -17,7 +17,5 @@
 
         // Задание 5: Timer
         TimerTask.DemonstrateTimer();
-
-        Console.ReadLine();
     }
 }
