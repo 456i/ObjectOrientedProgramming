@@ -1,0 +1,58 @@
+@startuml
+skinparam monochrome true
+skinparam linetype ortho
+top to bottom direction
+
+class User_ {
+  - id : String
+  - email : String
+  - password : String
+  + login() : Boolean
+  + logout() : void
+}
+
+class Client_ {
+  - isVIP : Boolean
+  + browseTours() : void
+  + selectTour(t : Tour_) : Order_
+}
+
+class Agent_ {
+  + addTour(t: Tour_) : void
+  + editTour(t: Tour_) : void
+  + markHot(t: Tour_) : void
+  + setDiscount(d: Double) : void
+}
+
+class Tour_ {
+  - id : String
+  - name : String
+  - price : Double
+  - isHot : Boolean
+  + finalPrice(client : Client_) : Double
+}
+
+class Order_ {
+  - id : String
+  - status : String
+  - finalPrice : Double
+  + processPayment() : Boolean
+}
+
+class DiscountManager_ {
+  - vipRate : Double
+  - hotRate : Double
+  + apply(t : Tour_, c : Client_) : Double
+}
+
+User_ <|-- Client_
+User_ <|-- Agent_
+
+Client_ --> Order_ : "создаёт"
+Order_ --> Tour_ : "1 тур"
+Agent_ --> Tour_ : "управляет"
+Order_ --> DiscountManager_
+DiscountManager_ --> Client_
+DiscountManager_ --> Tour_
+
+@enduml

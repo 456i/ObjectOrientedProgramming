@@ -1,0 +1,31 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+
+actor Client as Client
+participant Order as Order
+participant DiscountManager as DiscountManager
+participant Tour as Tour
+participant PaymentSystem as PaymentSystem
+
+Client -> Order : startPayment
+activate Order
+
+Order -> DiscountManager : applyDiscounts
+activate DiscountManager
+
+DiscountManager -> Tour : getPrice
+Tour --> DiscountManager : returnPrice
+
+DiscountManager --> Order : returnFinalPrice
+deactivate DiscountManager
+
+Order -> PaymentSystem : processPayment
+activate PaymentSystem
+PaymentSystem --> Order : returnPaymentStatus
+deactivate PaymentSystem
+
+Order --> Client : returnResult
+deactivate Order
+
+@enduml
