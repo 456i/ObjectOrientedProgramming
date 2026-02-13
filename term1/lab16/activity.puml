@@ -1,0 +1,31 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+
+start
+
+:View tours;
+
+if (Tour selected?) then (yes)
+  :Check seats;
+  if (Seats available?) then (yes)
+    :Create order;
+    :Calculate price;
+    :Pay;
+    if (Payment ok?) then (yes)
+      :Confirm order;
+      stop
+    else (no)
+      :Cancel order;
+      stop
+    endif
+  else (no)
+    :No seats;
+    stop
+  endif
+else (no)
+  :Continue browsing;
+  stop
+endif
+
+@enduml
