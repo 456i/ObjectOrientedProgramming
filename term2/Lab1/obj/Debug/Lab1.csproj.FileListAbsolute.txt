@@ -18,3 +18,13 @@ C:\Users\timof\Documents\Visual Studio Code\ObjectOrientedProgramming\term2\Lab1
 C:\Users\timof\Documents\Visual Studio Code\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
 C:\Users\timof\Documents\Visual Studio Code\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.exe
 C:\Users\timof\Documents\Visual Studio Code\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.pdb
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\bin\Debug\Lab1.exe.config
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\bin\Debug\Lab1.exe
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\bin\Debug\Lab1.pdb
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.csproj.AssemblyReference.cache
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.Form1.resources
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.csproj.GenerateResource.cache
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.exe
+C:\Users\Tim\Documents\ObjectOrientedProgramming\term2\Lab1\obj\Debug\Lab1.pdb
