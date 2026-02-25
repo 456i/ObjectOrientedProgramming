@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "4tUueL9toik=",
+  "dgSpecHash": "dP1pxYIYtts=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tim\\Documents\\ObjectOrientedProgramming\\term2\\Lab2\\Lab2\\Lab2.csproj",
+  "projectFilePath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\ObjectOrientedProgramming\\term2\\Lab2\\Lab2\\Lab2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Tim\\.nuget\\packages\\system.text.json\\10.0.3\\system.text.json.10.0.3.nupkg.sha512"
+    "C:\\Users\\timof\\.nuget\\packages\\system.text.json\\10.0.3\\system.text.json.10.0.3.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1510",
       "level": "Warning",
       "message": "PackageReference System.Text.Json не будет урезано. Рассмотрите возможность удаления этого пакета из зависимостей, так как он, вероятно, не требуется.",
-      "projectPath": "C:\\Users\\Tim\\Documents\\ObjectOrientedProgramming\\term2\\Lab2\\Lab2\\Lab2.csproj",
+      "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\ObjectOrientedProgramming\\term2\\Lab2\\Lab2\\Lab2.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Tim\\Documents\\ObjectOrientedProgramming\\term2\\Lab2\\Lab2\\Lab2.csproj",
+      "filePath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\ObjectOrientedProgramming\\term2\\Lab2\\Lab2\\Lab2.csproj",
       "libraryId": "System.Text.Json",
       "targetGraphs": [
         "net10.0-windows7.0"

@@ -1,34 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
+﻿using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+using Lab2;
 
-namespace Lab2.Services
+namespace Lab2
 {
+    /// <summary>
+    /// Дополнительный сервис — сохранение и загрузка через JSON
+    /// (альтернатива FileManager с форматом .itlab).
+    /// </summary>
     public static class JsonService
     {
-        public static void Save(List<Models.Computer> computers, string path)
+        private static readonly JsonSerializerOptions _options = new()
         {
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true
-            };
+            WriteIndented = true
+        };
 
-            string json = JsonSerializer.Serialize(computers, options);
-            File.WriteAllText(path, json);
+        /// <summary>Сериализует список компьютеров в JSON-файл.</summary>
+        public static void SaveJson(string filePath, List<Computer> computers)
+        {
+            var json = JsonSerializer.Serialize(computers, _options);
+            File.WriteAllText(filePath, json);
         }
 
-        public static List<Models.Computer> Load(string path)
+        /// <summary>Десериализует список компьютеров из JSON-файла.</summary>
+        public static List<Computer> LoadJson(string filePath)
         {
-            if (!File.Exists(path))
-                return new List<Models.Computer>();
-
-            string json = File.ReadAllText(path);
-
-            return JsonSerializer.Deserialize<List<Models.Computer>>(json)
-                   ?? new List<Models.Computer>();
+            var json = File.ReadAllText(filePath);
+            return JsonSerializer.Deserialize<List<Computer>>(json) ?? new List<Computer>();
         }
-
     }
 }

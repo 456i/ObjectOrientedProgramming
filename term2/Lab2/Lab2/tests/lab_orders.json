@@ -1,0 +1,92 @@
+[
+  {
+    "Type": "\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u0441\u0442\u0430\u043D\u0446\u0438\u044F",
+    "CPU": {
+      "Manufacturer": "Intel",
+      "Series": "Core i",
+      "Model": "Core i9 (10C)",
+      "Cores": 10,
+      "Frequency": 0,
+      "MaxFrequency": 4.5,
+      "ArchBits": 64,
+      "CacheL1KB": 0,
+      "CacheL2KB": 0,
+      "CacheL3MB": 20
+    },
+    "VideoCard": {
+      "Manufacturer": "NVIDIA",
+      "Series": "GeForce",
+      "Model": "RTX 4070",
+      "Frequency": 1800,
+      "MemoryGB": 12
+    },
+    "RAMsizeGB": "3534",
+    "RAMtype": "DDR5",
+    "HDDsizeGB": 1000,
+    "HDDtype": "SSD",
+    "PurchaseDate": "2026-02-12T00:00:00",
+    "HasMonitor": true,
+    "HasKeyboard": false,
+    "HasMouse": false
+  },
+  {
+    "Type": "\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u0441\u0442\u0430\u043D\u0446\u0438\u044F",
+    "CPU": {
+      "Manufacturer": "Intel",
+      "Series": "Core i",
+      "Model": "Core i9 (10C)",
+      "Cores": 10,
+      "Frequency": 0,
+      "MaxFrequency": 4.5,
+      "ArchBits": 64,
+      "CacheL1KB": 0,
+      "CacheL2KB": 0,
+      "CacheL3MB": 20
+    },
+    "VideoCard": {
+      "Manufacturer": "NVIDIA",
+      "Series": "GeForce",
+      "Model": "RTX 4070",
+      "Frequency": 1800,
+      "MemoryGB": 12
+    },
+    "RAMsizeGB": 8,
+    "RAMtype": "DDR5",
+    "HDDsizeGB": 1000,
+    "HDDtype": "SSD",
+    "PurchaseDate": "2026-02-12T00:00:00",
+    "HasMonitor": true,
+    "HasKeyboard": false,
+    "HasMouse": false
+  },
+  {
+    "Type": "\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u0441\u0442\u0430\u043D\u0446\u0438\u044F",
+    "CPU": {
+      "Manufacturer": "Intel",
+      "Series": "Core i",
+      "Model": "Core i9 (10C)",
+      "Cores": 10,
+      "Frequency": 0,
+      "MaxFrequency": 4.5,
+      "ArchBits": 64,
+      "CacheL1KB": 0,
+      "CacheL2KB": 0,
+      "CacheL3MB": 20
+    },
+    "VideoCard": {
+      "Manufacturer": "NVIDIA",
+      "Series": "GeForce",
+      "Model": "RTX 4070",
+      "Frequency": 1800,
+      "MemoryGB": 12
+    },
+    "RAMsizeGB": 8,
+    "RAMtype": "DDR5",
+    "HDDsizeGB": 1000,
+    "HDDtype": "SSD",
+    "PurchaseDate": "2026-02-12T00:00:00",
+    "HasMonitor": true,
+    "HasKeyboard": false,
+    "HasMouse": false
+  }
+]
